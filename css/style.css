@@ -79,7 +79,7 @@ h1, h2, h3, h4 { color: var(--secondary); margin-bottom: 1rem; }
     display: flex;
     align-items: center;
     justify-content: space-between;
-    min-height: 60vh;
+    min-height: 90vh;
 }
 
 .hero-content { max-width: 50%; }
@@ -296,19 +296,135 @@ h1, h2, h3, h4 { color: var(--secondary); margin-bottom: 1rem; }
 .caption { color: #777; font-size: 0.9rem; margin-top: 10px; font-style: italic; }
 
 /* =========================================
-   7. FOOTER
+   7. FOOTER MEJORADO (PROFESIONAL)
    ========================================= */
 .main-footer {
-    background: var(--secondary);
-    color: #b2bec3;
-    padding: 4rem 5% 2rem;
+    background: #1a1a2e; /* Fondo oscuro elegante */
+    color: #b2bec3;      /* Texto gris suave */
+    padding-top: 4rem;
     margin-top: auto;
+    font-size: 0.95rem;
+    border-top: 5px solid var(--primary); /* Línea de acento superior */
 }
-.footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; margin-bottom: 3rem; }
-.footer-info h3 { color: var(--white); margin-bottom: 1rem; }
-.footer-links h4, .footer-contact h4 { color: var(--white); margin-bottom: 1.2rem; font-size: 1.1rem; }
-.footer-links ul li { margin-bottom: 10px; }
-.footer-links a:hover { color: var(--primary); }
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5% 3rem;
+}
+
+/* Títulos de las columnas */
+.footer-col h3 {
+    color: var(--white);
+    margin-bottom: 1.2rem;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-col h4 {
+    color: var(--white);
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+/* Línea decorativa pequeña bajo los títulos H4 */
+.footer-col h4::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 30px;
+    height: 3px;
+    background: var(--primary);
+    border-radius: 2px;
+}
+
+/* Enlaces de Navegación */
+.footer-links { list-style: none; }
+.footer-links li { margin-bottom: 12px; }
+
+.footer-links a {
+    color: #b2bec3;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    color: var(--primary);
+    transform: translateX(5px); /* Efecto de movimiento a la derecha */
+}
+
+/* Sección de Créditos */
+.credit-block { margin-bottom: 15px; }
+.credit-block span {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    color: #6c5ce7; /* Tono violeta suave */
+    font-weight: 700;
+}
+.credit-block p { color: var(--white); margin-top: 2px; }
+
+.student-list { list-style: none; margin-top: 5px; }
+.student-list li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--white);
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+/* Lista de Contacto/Institución */
+.contact-links { list-style: none; }
+.contact-links li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+/* Barra Inferior (Copyright) */
+.footer-bottom {
+    background: #0f0f1a; /* Casi negro para contraste */
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 0.85rem;
+    opacity: 0.7;
+}
+
+/* Responsive para Footer */
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr; /* Una sola columna en móviles */
+        gap: 30px;
+        text-align: center;
+    }
+    
+    /* Centrar los títulos y sus líneas decorativas en móvil */
+    .footer-col h3, .footer-col h4 { justify-content: center; }
+    .footer-col h4::after { left: 50%; transform: translateX(-50%); }
+    
+    .footer-links a, .student-list li, .contact-links li {
+        justify-content: center;
+    }
+}
 
 /* =========================================
    8. RESPONSIVE DESIGN (MÓVIL)
@@ -339,4 +455,112 @@ h1, h2, h3, h4 { color: var(--secondary); margin-bottom: 1rem; }
     
     .grid-2-col { grid-template-columns: 1fr; }
     .hero h1 { font-size: 2.2rem; }
+}
+
+/* =========================================
+   ESTILOS ESPECÍFICOS: MÓDULO ALMACENAMIENTO
+   ========================================= */
+
+/* Variaciones de Tarjetas de Sistemas de Archivos */
+.card-ntfs { border-top-color: #00a8e8; }
+.card-ntfs .card-icon { color: #00a8e8; }
+
+.card-fat { border-top-color: #ffc107; }
+.card-fat .card-icon { color: #ffc107; }
+
+.card-ext { border-top-color: #e84118; }
+.card-ext .card-icon { color: #e84118; }
+
+.sub-text {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #aaa;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+/* Badge (Etiqueta pequeña de "Ultrarrápido") */
+.badge {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #fff;
+    display: inline-block;
+}
+.badge.success { background-color: #27ae60; }
+
+/* Acordeón Nativo (<details> y <summary>) */
+.accordion-native {
+    margin-top: 20px;
+}
+
+.accordion-native details {
+    background: #f8f9fa;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.accordion-native details[open] {
+    border-color: var(--primary);
+    box-shadow: 0 5px 15px rgba(108, 99, 255, 0.1);
+    background: #fff;
+}
+
+.accordion-native summary {
+    padding: 15px 20px;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--secondary);
+    list-style: none; /* Ocultar triángulo por defecto */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Icono personalizado para el acordeón */
+.accordion-native summary::after {
+    content: '+';
+    margin-left: auto;
+    font-weight: bold;
+    color: var(--primary);
+    transition: 0.3s;
+}
+
+.accordion-native details[open] summary::after {
+    content: '-';
+    transform: rotate(180deg);
+}
+
+.accordion-native .details-content {
+    padding: 0 20px 20px 20px;
+    color: #555;
+    line-height: 1.6;
+    border-top: 1px solid #f1f1f1;
+    margin-top: 5px;
+    padding-top: 15px;
+}
+
+/* Widget de Progreso en Sidebar */
+.progress-widget {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+.progress-widget p { font-size: 0.85rem; color: #888; margin-bottom: 5px; }
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: #eee;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.progress-bar .fill {
+    height: 100%;
+    background: var(--primary);
+    border-radius: 10px;
 }
