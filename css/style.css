@@ -1,0 +1,342 @@
+/* =========================================
+   1. VARIABLES Y CONFIGURACIÓN GLOBAL
+   ========================================= */
+:root {
+    --primary: #6C63FF;      /* Violeta principal */
+    --primary-dark: #5a52d5; /* Violeta oscuro para hover */
+    --secondary: #2F2E41;    /* Azul oscuro (Navbar/Footer) */
+    --accent: #F50057;       /* Rosa para detalles */
+    --text: #333333;         /* Texto general */
+    --text-light: #555555;   /* Texto secundario */
+    --bg-light: #F9F9F9;     /* Fondo general */
+    --white: #ffffff;
+    --shadow: 0 10px 30px rgba(0,0,0,0.08); /* Sombra suave */
+    --nav-height: 70px;      /* Altura de la barra de navegación */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth; /* Desplazamiento suave al dar clic en enlaces */
+}
+
+body {
+    background: var(--bg-light);
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding-top: var(--nav-height); /* IMPORTANTE: Para que la navbar fija no tape el contenido */
+}
+
+/* Tipografía y Enlaces */
+a { text-decoration: none; color: inherit; transition: 0.3s; }
+ul { list-style: none; }
+h1, h2, h3, h4 { color: var(--secondary); margin-bottom: 1rem; }
+
+/* =========================================
+   2. HEADER Y NAVBAR (FIJA)
+   ========================================= */
+.navbar {
+    background: var(--secondary);
+    height: var(--nav-height);
+    width: 100%;
+    position: fixed; /* Fija la barra en la parte superior */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Asegura que esté por encima de todo */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    padding: 0 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-links { display: flex; gap: 25px; }
+.nav-links a { color: var(--white); font-weight: 500; font-size: 0.95rem; }
+.nav-links a:hover { color: var(--primary); }
+
+.menu-btn { display: none; color: var(--white); font-size: 1.5rem; cursor: pointer; }
+
+/* =========================================
+   3. SECCIÓN HERO (PORTADA)
+   ========================================= */
+.hero {
+    background: linear-gradient(135deg, var(--secondary) 0%, #1a1a2e 100%);
+    color: var(--white);
+    padding: 4rem 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 60vh;
+}
+
+.hero-content { max-width: 50%; }
+.hero h1 { color: var(--white); font-size: 3rem; line-height: 1.2; margin-bottom: 1.5rem; }
+.hero p { font-size: 1.1rem; opacity: 0.9; margin-bottom: 2rem; }
+.highlight { color: var(--primary); }
+
+.btn-primary {
+    background: var(--primary);
+    color: var(--white);
+    padding: 12px 35px;
+    border-radius: 50px;
+    font-weight: 600;
+    display: inline-block;
+    box-shadow: 0 5px 15px rgba(108, 99, 255, 0.4);
+    transition: transform 0.3s;
+}
+
+.btn-primary:hover { transform: translateY(-3px); background: var(--primary-dark); }
+
+/* =========================================
+   4. GRID DE MÓDULOS (TARJETAS HOME)
+   ========================================= */
+.section-pad { padding: 4rem 5%; }
+.section-header { text-align: center; margin-bottom: 3rem; }
+.section-header h2 { font-size: 2.5rem; }
+
+.grid-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.card-module {
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-top: 5px solid transparent;
+    transition: 0.3s;
+}
+
+.card-module:hover {
+    transform: translateY(-10px);
+    border-top-color: var(--primary);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+}
+
+.card-icon { font-size: 2.5rem; color: var(--primary); margin-bottom: 1.5rem; }
+.card-module h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+.card-module p { color: var(--text-light); font-size: 0.95rem; line-height: 1.6; }
+.btn-text {
+    margin-top: 1.5rem;
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* =========================================
+   5. LAYOUT INTERNO (BARRA LATERAL + CONTENIDO)
+   ========================================= */
+.course-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr; /* Sidebar ancho fijo | Contenido flexible */
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Sidebar "Sticky" (Se pega al bajar) */
+.sidebar-topic {
+    background: var(--white);
+    padding: 2rem;
+    border-right: 1px solid #eee;
+    height: calc(100vh - var(--nav-height)); /* Ocupa el alto restante */
+    position: sticky;
+    top: var(--nav-height);
+    overflow-y: auto; /* Scroll si el menú es muy largo */
+}
+
+.sidebar-topic h3 { font-size: 1.2rem; border-bottom: 2px solid var(--bg-light); padding-bottom: 10px; margin-bottom: 20px; }
+.sidebar-topic li { margin-bottom: 8px; }
+.sidebar-topic a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 15px;
+    border-radius: 8px;
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+.sidebar-topic a:hover, .sidebar-topic a.active {
+    background: #EEEDFF; /* Color primario muy claro */
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.content-topic {
+    padding: 3rem 4rem;
+    background: var(--white);
+    min-height: 80vh;
+}
+
+/* =========================================
+   6. COMPONENTES EDUCATIVOS (EL CONTENIDO RICO)
+   ========================================= */
+
+/* Títulos y Texto */
+.topic-section { margin-bottom: 4rem; scroll-margin-top: 100px; /* Para que la navbar no tape el título al hacer clic */ }
+.topic-section h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+.topic-section h2 { font-size: 1.8rem; margin-top: 2rem; border-left: 5px solid var(--primary); padding-left: 15px; }
+.lead { font-size: 1.2rem; color: #555; line-height: 1.8; margin-bottom: 2rem; }
+
+/* Caja de "Sabías que..." (Fun Fact) */
+.fun-fact-box {
+    background: linear-gradient(135deg, #fff0f1 0%, #ffe4e6 100%);
+    color: #444;
+    padding: 25px;
+    border-radius: 12px;
+    margin: 30px 0;
+    border-left: 6px solid var(--accent);
+    box-shadow: 0 4px 15px rgba(245, 0, 87, 0.1);
+}
+.fun-fact-box h4 { color: var(--accent); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+
+/* Cajas de Profundización (Deep Dive) */
+.deep-dive {
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    padding: 25px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+.deep-dive h3 { font-size: 1.3rem; border-bottom: 2px solid #dfe6e9; padding-bottom: 10px; }
+
+/* Línea de Tiempo (Historia) */
+.timeline { border-left: 3px solid var(--primary); margin: 30px 0 30px 10px; padding-left: 25px; }
+.timeline-item { margin-bottom: 25px; position: relative; }
+.timeline-item::before {
+    content: '';
+    width: 14px;
+    height: 14px;
+    background: var(--primary);
+    border-radius: 50%;
+    position: absolute;
+    left: -33px;
+    top: 5px;
+    border: 3px solid var(--white);
+    box-shadow: 0 0 0 2px var(--primary);
+}
+
+/* Tablas de Datos */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.95rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    overflow: hidden;
+}
+.data-table thead tr { background-color: var(--secondary); color: var(--white); text-align: left; }
+.data-table th, .data-table td { padding: 15px; border-bottom: 1px solid #eee; }
+.data-table tbody tr:hover { background-color: #f1f1f1; }
+
+/* Contenedor de Video (Responsive 16:9) */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    margin: 30px 0;
+}
+.video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+/* Grid de 2 columnas para información */
+.grid-2-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin: 25px 0;
+}
+.card-info {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+}
+
+/* Fórmulas Matemáticas */
+.math-box {
+    background: var(--secondary);
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    font-family: 'Courier New', monospace;
+    font-size: 1.1rem;
+    margin: 20px 0;
+}
+
+/* Imágenes */
+.image-container { text-align: center; margin: 30px 0; }
+.img-fluid { max-width: 100%; height: auto; border-radius: 10px; box-shadow: var(--shadow); }
+.caption { color: #777; font-size: 0.9rem; margin-top: 10px; font-style: italic; }
+
+/* =========================================
+   7. FOOTER
+   ========================================= */
+.main-footer {
+    background: var(--secondary);
+    color: #b2bec3;
+    padding: 4rem 5% 2rem;
+    margin-top: auto;
+}
+.footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; margin-bottom: 3rem; }
+.footer-info h3 { color: var(--white); margin-bottom: 1rem; }
+.footer-links h4, .footer-contact h4 { color: var(--white); margin-bottom: 1.2rem; font-size: 1.1rem; }
+.footer-links ul li { margin-bottom: 10px; }
+.footer-links a:hover { color: var(--primary); }
+
+/* =========================================
+   8. RESPONSIVE DESIGN (MÓVIL)
+   ========================================= */
+@media (max-width: 768px) {
+    /* Navbar móvil */
+    .menu-btn { display: block; }
+    .nav-links {
+        display: none; /* Aquí podrías añadir JS para hacer toggle */
+        position: absolute;
+        top: var(--nav-height);
+        left: 0;
+        width: 100%;
+        background: var(--secondary);
+        flex-direction: column;
+        padding: 20px;
+        text-align: center;
+    }
+    .nav-links.active { display: flex; }
+
+    /* Layout general */
+    .hero { flex-direction: column; text-align: center; padding-top: 2rem; }
+    .hero-content { max-width: 100%; margin-bottom: 2rem; }
+    
+    .course-layout { display: block; } /* Quita el grid */
+    .sidebar-topic { display: none; } /* Oculta sidebar (podrías convertirlo en menú superior) */
+    .content-topic { padding: 2rem 5%; }
+    
+    .grid-2-col { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 2.2rem; }
+}
