@@ -70,7 +70,7 @@
             <div class="grid-2-col">
                 <div class="card-module">
                     <div class="img-col">
-                        <img src="/images/thrashing.png" class="img-fluid shadow-box">
+                        <img src="/images/thrashing.png " class="img-fluid shadow-box">
                     </div>
                     <h4>Memoria Contigua</h4>
                     <p>Cada proceso recibe un bloque único y continuo.</p>
@@ -81,10 +81,8 @@
                 </div>
                 
                 <div class="card-module">
-                    <div class="img-guide" style="min-height: 150px; padding: 10px;">
-                        <i class="fas fa-th-large"></i>
-                        <span>Imagen: Rompecabezas</span>
-                        <small>Bloques de un mismo color dispersos en diferentes lugares.</small>
+                    <div class="img-col">
+                        <img src="/images/fragmentacion_nocontigua.jpeg" class="img-fluid shadow-box">
                     </div>
                     <h4>Memoria No Contigua</h4>
                     <p>El proceso se divide en trozos dispersos.</p>
@@ -100,10 +98,8 @@
             <h2>Memoria Principal (RAM)</h2>
             <div class="grid-2-col">
                 <div class="img-col">
-                     <div class="img-guide">
-                        <i class="fas fa-microchip"></i>
-                        <span>Imagen: RAM Física vs Lógica</span>
-                        <small>Una foto de un módulo RAM real al lado de una cuadrícula tipo Excel (celdas) con direcciones (0x01, 0x02...).</small>
+                    <div class="img-col">
+                        <img src="/images/comparativaram.jpeg" class="img-fluid shadow-box">
                     </div>
                 </div>
                 <div class="text-col">
@@ -147,12 +143,10 @@
                 <div class="img-col">
                     
 
-[Image of computer memory hierarchy pyramid]
 
-                    <div class="img-guide">
-                        <i class="fas fa-layer-group"></i>
-                        <span>Imagen: Pirámide de Jerarquía</span>
-                        <small>Busca el clásico diagrama triangular: Registros arriba (punta pequeña) y Disco abajo (base ancha).</small>
+
+                    <div class="img-col">
+                        <img src="/images/jerarquia.jpeg" class="img-fluid shadow-box">
                     </div>
                 </div>
             </div>
@@ -163,10 +157,8 @@
             <p>El SO utiliza estrategias inteligentes para repartir la memoria.</p>
             
             
-            <div class="img-guide" style="min-height: 120px; margin-bottom: 20px;">
-                <i class="fas fa-exchange-alt"></i>
-                <span>Imagen: Diagrama de Swapping</span>
-                <small>Ilustración que muestre una flecha moviendo datos de la RAM a un Disco y viceversa.</small>
+            <div class="img-col">
+                <img src="/images/swapping.jpeg" class="img-fluid shadow-box">
             </div>
 
             <div class="accordion-native">
@@ -202,20 +194,16 @@
                 <div class="card-module">
                     <h4>Fragmentación Interna</h4>
                     
-                    <div class="img-guide" style="min-height: 100px; margin: 10px 0;">
-                        <i class="fas fa-box-open"></i>
-                        <span>Imagen: Caja medio vacía</span>
-                        <small>Un bloque grande con un objeto pequeño dentro, sobrando espacio inútil.</small>
+                    <div class="img-col">
+                        <img src="/images/fminterna.jpeg" class="img-fluid shadow-box">
                     </div>
                     <p>Ocurre cuando le das 100MB a un proceso que solo necesita 90MB. Esos 10MB se pierden.</p>
                 </div>
                 <div class="card-module">
                     <h4>Fragmentación Externa</h4>
                     
-                    <div class="img-guide" style="min-height: 100px; margin: 10px 0;">
-                        <i class="fas fa-border-none"></i>
-                        <span>Imagen: Queso Suizo</span>
-                        <small>Bloques de memoria con huecos vacíos en medio, donde no cabe un proceso grande.</small>
+                    <div class="img-col">
+                        <img src="/images/fmexterna.jpeg" class="img-fluid shadow-box">
                     </div>
                     <p>Hay suficiente espacio total, pero está todo disperso en pedacitos pequeños.</p>
                 </div>

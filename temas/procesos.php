@@ -71,10 +71,8 @@
                 </div>
                 <div class="img-col">
                     
-                    <div class="img-guide">
-                        <i class="fas fa-file-code fa-2x"></i>
-                        <span>Imagen: Programa vs Proceso</span>
-                        <small>Ilustración: Archivo estático en HDD vs Ejecución dinámica en RAM.</small>
+                    <div class="img-col">
+                        <img src="/images/process1.jpeg" class="img-fluid shadow-box">
                     </div>
                 </div>
             </div>
@@ -111,10 +109,8 @@
             <p>Un proceso transita por 5 estados fundamentales<sup>[476]</sup>. Las transiciones son controladas por el planificador:</p>
             
             
-            <div class="img-guide" style="min-height: 200px;">
-                <i class="fas fa-recycle fa-2x"></i>
-                <span>Imagen: Diagrama de Estados</span>
-                <small>Ciclo: Nuevo -> Listo <-> Ejecución -> Terminado (y Bloqueado).</small>
+            <div class="img-col">
+                        <img src="/images/deadblock.jpeg" class="img-fluid shadow-box">
             </div>
 
             <ul class="step-list">

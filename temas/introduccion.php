@@ -66,10 +66,8 @@
                 </div>
                 <div class="img-col">
                     
-                    <div class="img-guide">
-                        <i class="fas fa-terminal fa-2x"></i>
-                        <span>Imagen: CLI vs GUI</span>
-                        <small>Comparativa visual: Una pantalla negra con código vs un escritorio con iconos.</small>
+                    <div class="img-col">
+                        <img src="/images/introd1.jpeg" class="img-fluid shadow-box">
                     </div>
                 </div>
             </div>
@@ -142,12 +140,10 @@
             </div>
             
             
-             <div class="img-guide" style="min-height: 100px;">
-                <i class="fas fa-sitemap fa-2x"></i>
-                <span>Imagen: Arquitecturas de SO</span>
-                <small>Diagrama comparativo de las estructuras (Monolítico, Capas, Microkernel).</small>
+                <div class="img-col">
+                        <img src="/images/introd2.jpeg" class="img-fluid shadow-box">
+                </div>
             </div>
-
             <div class="info-box">
                 <strong><i class="fas fa-mobile-alt"></i> Caso Real: Android</strong>
                 <p>Android usa una estructura basada en Linux modular, pero añade sus propios servicios como HAL (Hardware Abstraction Layer) y ART (Android Runtime)<sup>[63]</sup>. Es un ejemplo de evolución moderna.</p>
